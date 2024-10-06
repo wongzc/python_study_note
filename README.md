@@ -5,8 +5,9 @@ python important learning points
 1. class: use when need attribute+method, center of OOP
     - encapsulatiopn: data/attribute + method
     - inheritance, cleaner, lesser repeat code
-    - polymorphism: diffeernt class, but if have same method name, can polymorphism call
-    - abstract: create a template ( use abc.ABC & abc.abstarctmethod) with essentiate method defined ( with pass only)
+    - polymorphism: diffeernt class, but if have same method name, can polymorphism call. treat differetn class as same instance
+    - abstract: create a template ( use abc.ABC & abc.abstarctmethod) with essentiate method defined ( with pass only). it is also data abstraction
+    - can multi inherit, just class A(inher1, inher2)
 
 2. python is compiled to byttecode, and run by python-virtual-machine (PVM, interpreter), while c++ is compiled to machine code, run by CPU
 
@@ -27,3 +28,130 @@ python important learning points
     - y=lambda x:x*k #k can be vairable form global, x is the argument
     - y=lambda a,b=0:a*b #can set default value
     - y=lambda a,b=None: a*(b if b is not None else 0) # use if else
+
+7. exception haddling:
+    - try: xxx 
+    - excpet Exception as e: yyy ( or just except: yyy)
+    - finally: zzz
+
+8. string can use .swapcase() to change AbCDe to aBcdE
+
+9. use for when have start and stop condition, use while when only have stop
+
+10. pass func as argument: 
+    - def a(text): return text.upper()
+    - def b(func): return func('haha')
+    - b is taking func as input, and use func to process the text 'haha'
+
+11. use of asterisk *
+    - unpack:
+        - a=[1,2,3], b=(4,5,6)
+            - def add(x,y,z): return x+y+z
+            - add(*a)
+            - add(*b)
+        -d={'x':3,'y':4,'z':8}
+            - add(**d)
+
+    - merge list
+        - c=[*a,*b]
+    - function argument:
+        - def func(*args, **kwargs): print(args,kwargs)
+            - will get list of args and dict of kwargs
+    - variable length:
+        - a,*b=[1,2,3,4,5,6,7,8]
+            - a=1
+            - b=[2,3,4,5,6,7,8]
+
+12. decorators:
+    - make change to function input/output, add logging
+    - can access control as well (** jwt wrapper?)
+    - use for caching: create a cache={}, if arg in cache, return cache[arg], else store cache[arg]=result before return back
+    - timing
+    - add metadata, like func.var=''
+    - Enforcing Functionality
+    def my_decorator(func):
+        def wrapper(*args, **kwargs):
+            print("Before function call")
+            result = func(*args, **kwargs)
+            print("After function call")
+            return result
+        return wrapper
+
+    @my_decorator
+    def say_hello(name):
+        print(f"Hello, {name}!")
+        return f'nice to meet you, {name}'
+
+    print(say_hello("Alice"))
+
+13. backslash: \
+    - use for line continuation
+    - use for escape char like
+        - \\ -> \
+        - \n -> newline
+        - \' -> '
+
+14. foward slash:
+    - divie and path
+    - note, path can eb;
+        - path = "C:\\Users\\Name\\file.txt"
+            or path = r"C:\Users\Name\file.txt"
+        - path = "C:/Users/Name/file.txt"
+
+15. string prefix
+    - f: format string with {var}
+    - r: raw string
+    - b: byte string
+    - u: unicode string
+
+16. docstring
+    - define with 'or" or triple ' or ", for class & function/method & module
+    - use help(function/class/module ** no need () for func)
+    - or just function/class/module.__doc__
+
+17. __init__.py:
+    - can use to import function from others .py (from .other_file import func1) ** need to have the *
+    - the folder that contain init+ other can be a module
+    - we can import it to other python file. from module import func1/ import module.func1
+
+18. dynamically typed, but can use type hint
+
+19. floor/int:
+    - math.floor(): toward small, 3.7->3, -3.7->-4
+    - int(): keep only int part
+
+***20. import file/ path and relative
+
+21. deep copy:
+    - copy.deepcopy for list/set/dict
+    - list[:] for list (but list in list will still be shallow! take note)
+
+22. python use Tim Sort: merge + insertion sort
+    * other sorting method
+
+23. python debug: python -m pdb
+    - Set Breakpoint: b <function_name> (e.g., b factorial)
+    - Continue Execution: c
+    - Step Through Code: s
+    - Inspect Variables: p <variable_name> (e.g., p n)
+    - Exit Debugger: q
+
+24. generator:
+    - (x for x in y)
+    - def func(y): for i in range(y): yield i
+    - zip(x,y)
+    - map lambda to list
+        names = ['Alice', 'Bob', 'Charlie']
+        n=map(lambda x: x*2, names)
+
+25. iterator: all generator are iterator
+    - any thing with next is iterator
+unit test
+
+        
+
+
+
+    
+
+
