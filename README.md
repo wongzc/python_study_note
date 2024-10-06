@@ -64,6 +64,13 @@ python important learning points
 
 12. decorators:
     - make change to function input/output, add logging
+        - existing decorator
+            - @staticmethod: for method that not going to access state of class, can skip self. i.e., def func(a) instead of def func(self,a)
+            - @classmethod: to access class variable, that is not like self.xxx. usually direct under a class.
+                - we create a method, @classmethod; def func(cls): return cls.xxx 
+            - @property: change method to attribute, so can call without ()
+            - @abstractmethod
+            - @lrucache
     - can access control as well (** jwt wrapper?)
     - use for caching: create a cache={}, if arg in cache, return cache[arg], else store cache[arg]=result before return back
     - timing
@@ -189,7 +196,7 @@ python important learning points
         lengths = [len(word) for word in words if len(word) > 3]
 
 
-dwdqwfewfwefwef
+
 
 
 
