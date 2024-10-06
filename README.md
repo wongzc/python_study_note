@@ -146,7 +146,48 @@ python important learning points
 
 25. iterator: all generator are iterator
     - any thing with next is iterator
-unit test
+
+26. memory management: heap to manage, garabage collector, recyle unused memeroy and freee it out
+
+27. monejy patching: dynamically modify class at run time, like change the class.func to other func
+
+28. __init__ is constructor, to initialize value
+    
+29. pickling & unpickling: change data to byte stream, for network transfer
+    - import pickle
+    - with open('abc.pickle','wb') as file: pickle.dump(data,file)
+    - with open('abc.pickle','rb') as file: data=pickle.load(file)
+
+30. access specifier:
+    - attribute/method in class start with __: cant access outside
+    - start with _: proected, protected concept is just infromational only
+
+31. unit test
+    import unittest
+    from math_operations import divide
+
+    class TestMathOperations(unittest.TestCase):
+        def test_divide(self):
+            self.assertEqual(divide(9, 3), 3)
+            # Testing for division by zero
+            with self.assertRaises(ValueError):
+                divide(10, 0)
+
+    if __name__ == '__main__':
+        unittest.main()
+
+32. GIL
+
+33. python switch
+    - match term: case 'a':'aa' case 'b':'bb'
+
+34. Walrus Operator:
+    - assign value within expression
+    - if (n:=len(list))>3:
+    - while (user_input := input('abc'))!='haha'
+    - lengths = [n for word in words if (n := len(word)) > 3]
+        lengths = [len(word) for word in words if len(word) > 3]
+
 
         
 
