@@ -189,7 +189,6 @@ python important learning points
         lengths = [len(word) for word in words if len(word) > 3]
 
 
-dwdqwfewfwefwef
 
 
 
