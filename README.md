@@ -184,7 +184,11 @@ python important learning points
     if __name__ == '__main__':
         unittest.main()
 
-32. GIL
+32. GIL restricted python multi threading, means 1 python process, only 1 thread at a time
+    to overcome:
+        - multiprocessing: using multiple python process to run
+        - multithreading: use threading module, can thread to other task when 1 is waiting I/O related response
+        - asyncio: similar with threading, but more suit for faster and more frequent switch, control with async, await
 
 33. python switch
     - match term: case 'a':'aa' case 'b':'bb'
