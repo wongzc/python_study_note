@@ -67,7 +67,8 @@ python important learning points
         - existing decorator
             - @staticmethod: for method that not going to access state of class, can skip self. i.e., def func(a) instead of def func(self,a)
             - @classmethod: to access class variable, that is not like self.xxx. usually direct under a class.
-                - we create a method, @classmethod; def func(cls): return cls.xxx 
+                - we create a method, @classmethod; def func(cls): return cls.xxx
+                - we can access this value in init by the classname.variablename
             - @property: change method to attribute, so can call without ()
             - @abstractmethod
             - @lrucache
@@ -117,7 +118,7 @@ python important learning points
     - or just function/class/module.__doc__
 
 17. __init__.py:
-    - can use to import function from others .py (from .other_file import func1) ** need to have the *
+    - can use to import function from others .py (from .other_file import func1) ** need to have the "."
     - the folder that contain init+ other can be a module
     - we can import it to other python file. from module import func1/ import module.func1
 
@@ -156,7 +157,7 @@ python important learning points
 
 26. memory management: heap to manage, garabage collector, recyle unused memeroy and freee it out
 
-27. monejy patching: dynamically modify class at run time, like change the class.func to other func
+27. monkey patching: dynamically modify class at run time, like change the class.func to other func
 
 28. __init__ is constructor, to initialize value
     
@@ -194,6 +195,15 @@ python important learning points
     - while (user_input := input('abc'))!='haha'
     - lengths = [n for word in words if (n := len(word)) > 3]
         lengths = [len(word) for word in words if len(word) > 3]
+
+35. when import a file in python, code of imported file will be always executed, unless wrap it with if __name__=="__main__"
+
+36. when say import A.py into B.py, if A.py reading a file using relative path, may causing problem if B.py is in differnt folder ( as run from B will use B as currntdir)
+    better to use full path to avoid such problem
+
+37. to import a .py in parent dir. just use: sys.path.append(parent), then can import the filename
+    - can get parent=os.path.dirname(current)
+    - currentfile = os.path.realpath(__file__) (current=os.path.dirname(currentfile))
 
 
 
